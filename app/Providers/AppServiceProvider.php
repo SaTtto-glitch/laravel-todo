@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Contracts\Http\Kernel;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,6 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->app->make(Kernel::class)->prependMiddleware(MyMiddleware::class);
+        //
     }
 }
