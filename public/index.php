@@ -1,8 +1,8 @@
 <?php
 use Illuminate\Http\Request;
-echo 'test';
 
 define('LARAVEL_START', microtime(true));
+echo 'test';
 
 // Determine if the application is in maintenance mode...
 if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
