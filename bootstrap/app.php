@@ -10,12 +10,15 @@ return Application::configure(basePath: dirname(__DIR__))
         web: __DIR__.'/../routes/web.php',
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
-    )
+    );
+    echo 'Inside app.php 1'
+
     ->withMiddleware(function (Middleware $middleware) {
         //
-    })
+    });
+    echo 'Inside app.php 2'
+
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
 
-    echo 'Inside app.php end';
