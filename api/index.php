@@ -1,5 +1,5 @@
 <?php
-
+echo 'Inside api/index.php start'; 
 // IF $_SERVER['DOCUMENT_ROOT'] does not contain the public folder, add it
 if (strpos($_SERVER['DOCUMENT_ROOT'], "/public") === false) {
     $_SERVER['SCRIPT_NAME'] = '/index.php';
@@ -17,3 +17,5 @@ putenv("APP_URL=https://$vercelURL");
 
 // Forward Vercel requests to public index.
 require __DIR__ . "/../public/index.php";
+
+echo 'Inside api/index.php end';
