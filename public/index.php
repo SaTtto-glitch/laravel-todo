@@ -24,14 +24,18 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 
 echo 'After app bootstrap'; 
 
-$response = $app->handleRequest(Request::capture());
+$kernel = $app->make('Illuminate\Contracts\Http\Kernel');
 
-echo 'After handleRequest'; 
+$response = $kernel->handle(
+    $request = Illuminate\Http\Request::capture()
+);
+
+echo 'After kernel handle'; 
 
 $response->send();
 
 echo 'After response send'; 
 
-$app->terminate($response);
+$kernel->terminate($request, $response);
 
-echo 'After app terminate'; 
+echo 'After kernel terminate'; 
