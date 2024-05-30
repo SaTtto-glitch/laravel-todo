@@ -18,9 +18,6 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
 # 作業ディレクトリの設定
 WORKDIR /var/www
 
-# アプリケーションのルートフォルダにコピーする。
-RUN --mount=type=secret,id=_env,dst=/etc/secrets/.env cp /etc/secrets/.env .
-
 # アプリケーションコードのコピー
 COPY . .
 
