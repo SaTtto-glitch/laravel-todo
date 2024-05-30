@@ -3,10 +3,9 @@ FROM php:8.2-fpm
 
 # 必要な拡張機能のインストール
 RUN apt-get update && apt-get install -y \
-    nginx \
-    libzip-dev \
+    libsqlite3-dev \
     unzip \
-    && docker-php-ext-install zip pdo_mysql
+    && docker-php-ext-install pdo pdo_sqlite
 
 # Composerのインストール
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -21,9 +20,6 @@ WORKDIR /var/www
 
 # アプリケーションコードのコピー
 COPY . .
-
-# nginxの設定ファイルをコピー
-COPY nginx.conf /etc/nginx/nginx.conf
 
 # Composerの依存関係をインストール
 RUN composer install --no-dev --optimize-autoloader
